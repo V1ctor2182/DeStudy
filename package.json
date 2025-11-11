@@ -1,0 +1,31 @@
+{
+  "name": "destudy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DeStudy - Decentralized study notes sharing platform",
+  "workspaces": [
+    "contracts",
+    "frontend",
+    "subgraph"
+  ],
+  "scripts": {
+    "dev:contracts": "npm run dev --workspace=contracts",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "test:contracts": "npm test --workspace=contracts",
+    "test:frontend": "npm test --workspace=frontend",
+    "test": "npm run test:contracts && npm run test:frontend",
+    "lint": "npm run lint --workspaces",
+    "build:contracts": "npm run build --workspace=contracts",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build": "npm run build:contracts && npm run build:frontend"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

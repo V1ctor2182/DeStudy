@@ -1,0 +1,454 @@
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/08b5e_viem__esm_ce775b._.js", {
+
+"[project]/node_modules/viem/_esm/utils/abi/encodeFunctionResult.js [app-client] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__ }) => (() => {
+"use strict";
+
+__turbopack_esm__({
+    "encodeFunctionResult": ()=>encodeFunctionResult
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/errors/abi.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/encodeAbiParameters.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$getAbiItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/getAbiItem.js [app-client] (ecmascript)");
+"__TURBOPACK__ecmascript__hoisting__location__";
+;
+;
+;
+const docsPath = '/docs/contract/encodeFunctionResult';
+function encodeFunctionResult(parameters) {
+    const { abi, functionName, result } = parameters;
+    let abiItem = abi[0];
+    if (functionName) {
+        const item = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$getAbiItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAbiItem"]({
+            abi,
+            name: functionName
+        });
+        if (!item) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AbiFunctionNotFoundError"](functionName, {
+            docsPath
+        });
+        abiItem = item;
+    }
+    if (abiItem.type !== 'function') throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AbiFunctionNotFoundError"](undefined, {
+        docsPath
+    });
+    if (!abiItem.outputs) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AbiFunctionOutputsNotFoundError"](abiItem.name, {
+        docsPath
+    });
+    const values = (()=>{
+        if (abiItem.outputs.length === 0) return [];
+        if (abiItem.outputs.length === 1) return [
+            result
+        ];
+        if (Array.isArray(result)) return result;
+        throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["InvalidArrayError"](result);
+    })();
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["encodeAbiParameters"](abiItem.outputs, values);
+} //# sourceMappingURL=encodeFunctionResult.js.map
+
+})()),
+"[project]/node_modules/viem/_esm/utils/abi/encodeErrorResult.js [app-client] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__ }) => (() => {
+"use strict";
+
+__turbopack_esm__({
+    "encodeErrorResult": ()=>encodeErrorResult
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/errors/abi.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$concat$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/data/concat.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$hash$2f$toFunctionSelector$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/hash/toFunctionSelector.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/encodeAbiParameters.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$formatAbiItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/formatAbiItem.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$getAbiItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/getAbiItem.js [app-client] (ecmascript)");
+"__TURBOPACK__ecmascript__hoisting__location__";
+;
+;
+;
+;
+;
+;
+const docsPath = '/docs/contract/encodeErrorResult';
+function encodeErrorResult(parameters) {
+    const { abi, errorName, args } = parameters;
+    let abiItem = abi[0];
+    if (errorName) {
+        const item = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$getAbiItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAbiItem"]({
+            abi,
+            args,
+            name: errorName
+        });
+        if (!item) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AbiErrorNotFoundError"](errorName, {
+            docsPath
+        });
+        abiItem = item;
+    }
+    if (abiItem.type !== 'error') throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AbiErrorNotFoundError"](undefined, {
+        docsPath
+    });
+    const definition = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$formatAbiItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatAbiItem"](abiItem);
+    const signature = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$hash$2f$toFunctionSelector$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toFunctionSelector"](definition);
+    let data = '0x';
+    if (args && args.length > 0) {
+        if (!abiItem.inputs) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AbiErrorInputsNotFoundError"](abiItem.name, {
+            docsPath
+        });
+        data = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["encodeAbiParameters"](abiItem.inputs, args);
+    }
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$concat$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["concatHex"]([
+        signature,
+        data
+    ]);
+} //# sourceMappingURL=encodeErrorResult.js.map
+
+})()),
+"[project]/node_modules/viem/_esm/utils/abi/decodeFunctionData.js [app-client] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__ }) => (() => {
+"use strict";
+
+__turbopack_esm__({
+    "decodeFunctionData": ()=>decodeFunctionData
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/errors/abi.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$slice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/data/slice.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$hash$2f$toFunctionSelector$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/hash/toFunctionSelector.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$decodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/decodeAbiParameters.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$formatAbiItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/formatAbiItem.js [app-client] (ecmascript)");
+"__TURBOPACK__ecmascript__hoisting__location__";
+;
+;
+;
+;
+;
+function decodeFunctionData(parameters) {
+    const { abi, data } = parameters;
+    const signature = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$slice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["slice"](data, 0, 4);
+    const description = abi.find((x)=>x.type === 'function' && signature === __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$hash$2f$toFunctionSelector$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toFunctionSelector"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$formatAbiItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatAbiItem"](x)));
+    if (!description) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$abi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AbiFunctionSignatureNotFoundError"](signature, {
+        docsPath: '/docs/contract/decodeFunctionData'
+    });
+    return {
+        functionName: description.name,
+        args: 'inputs' in description && description.inputs && description.inputs.length > 0 ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$decodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["decodeAbiParameters"](description.inputs, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$slice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["slice"](data, 4)) : undefined
+    };
+} //# sourceMappingURL=decodeFunctionData.js.map
+
+})()),
+"[project]/node_modules/viem/_esm/utils/ens/localBatchGatewayRequest.js [app-client] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__ }) => (() => {
+"use strict";
+
+__turbopack_esm__({
+    "localBatchGatewayRequest": ()=>localBatchGatewayRequest,
+    "localBatchGatewayUrl": ()=>localBatchGatewayUrl
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$constants$2f$abis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/constants/abis.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$constants$2f$solidity$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/constants/solidity.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$decodeFunctionData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/decodeFunctionData.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeErrorResult$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/encodeErrorResult.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeFunctionResult$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/encodeFunctionResult.js [app-client] (ecmascript)");
+"__TURBOPACK__ecmascript__hoisting__location__";
+;
+;
+;
+;
+;
+const localBatchGatewayUrl = 'x-batch-gateway:true';
+async function localBatchGatewayRequest(parameters) {
+    const { data, ccipRequest } = parameters;
+    const { args: [queries] } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$decodeFunctionData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["decodeFunctionData"]({
+        abi: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$constants$2f$abis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["batchGatewayAbi"],
+        data
+    });
+    const failures = [];
+    const responses = [];
+    await Promise.all(queries.map(async (query, i)=>{
+        try {
+            responses[i] = query.urls.includes(localBatchGatewayUrl) ? await localBatchGatewayRequest({
+                data: query.data,
+                ccipRequest
+            }) : await ccipRequest(query);
+            failures[i] = false;
+        } catch (err) {
+            failures[i] = true;
+            responses[i] = encodeError(err);
+        }
+    }));
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeFunctionResult$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["encodeFunctionResult"]({
+        abi: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$constants$2f$abis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["batchGatewayAbi"],
+        functionName: 'query',
+        result: [
+            failures,
+            responses
+        ]
+    });
+}
+function encodeError(error) {
+    if (error.name === 'HttpRequestError' && error.status) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeErrorResult$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["encodeErrorResult"]({
+        abi: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$constants$2f$abis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["batchGatewayAbi"],
+        errorName: 'HttpError',
+        args: [
+            error.status,
+            error.shortMessage
+        ]
+    });
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeErrorResult$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["encodeErrorResult"]({
+        abi: [
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$constants$2f$solidity$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["solidityError"]
+        ],
+        errorName: 'Error',
+        args: [
+            'shortMessage' in error ? error.shortMessage : error.message
+        ]
+    });
+} //# sourceMappingURL=localBatchGatewayRequest.js.map
+
+})()),
+"[project]/node_modules/viem/_esm/utils/address/isAddressEqual.js [app-client] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__ }) => (() => {
+"use strict";
+
+__turbopack_esm__({
+    "isAddressEqual": ()=>isAddressEqual
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$address$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/errors/address.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$address$2f$isAddress$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/address/isAddress.js [app-client] (ecmascript)");
+"__TURBOPACK__ecmascript__hoisting__location__";
+;
+;
+function isAddressEqual(a, b) {
+    if (!__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$address$2f$isAddress$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isAddress"](a, {
+        strict: false
+    })) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$address$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["InvalidAddressError"]({
+        address: a
+    });
+    if (!__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$address$2f$isAddress$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isAddress"](b, {
+        strict: false
+    })) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$address$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["InvalidAddressError"]({
+        address: b
+    });
+    return a.toLowerCase() === b.toLowerCase();
+} //# sourceMappingURL=isAddressEqual.js.map
+
+})()),
+"[project]/node_modules/viem/_esm/errors/ccip.js [app-client] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__ }) => (() => {
+"use strict";
+
+__turbopack_esm__({
+    "OffchainLookupError": ()=>OffchainLookupError,
+    "OffchainLookupResponseMalformedError": ()=>OffchainLookupResponseMalformedError,
+    "OffchainLookupSenderMismatchError": ()=>OffchainLookupSenderMismatchError
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$stringify$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/stringify.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$base$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/errors/base.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/errors/utils.js [app-client] (ecmascript)");
+"__TURBOPACK__ecmascript__hoisting__location__";
+;
+;
+;
+class OffchainLookupError extends __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$base$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BaseError"] {
+    constructor({ callbackSelector, cause, data, extraData, sender, urls }){
+        super(cause.shortMessage || 'An error occurred while fetching for an offchain result.', {
+            cause,
+            metaMessages: [
+                ...cause.metaMessages || [],
+                cause.metaMessages?.length ? '' : [],
+                'Offchain Gateway Call:',
+                urls && [
+                    '  Gateway URL(s):',
+                    ...urls.map((url)=>`    ${__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getUrl"](url)}`)
+                ],
+                `  Sender: ${sender}`,
+                `  Data: ${data}`,
+                `  Callback selector: ${callbackSelector}`,
+                `  Extra data: ${extraData}`
+            ].flat(),
+            name: 'OffchainLookupError'
+        });
+    }
+}
+class OffchainLookupResponseMalformedError extends __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$base$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BaseError"] {
+    constructor({ result, url }){
+        super('Offchain gateway response is malformed. Response data must be a hex value.', {
+            metaMessages: [
+                `Gateway URL: ${__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getUrl"](url)}`,
+                `Response: ${__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$stringify$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["stringify"](result)}`
+            ],
+            name: 'OffchainLookupResponseMalformedError'
+        });
+    }
+}
+class OffchainLookupSenderMismatchError extends __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$base$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BaseError"] {
+    constructor({ sender, to }){
+        super('Reverted sender address does not match target contract address (`to`).', {
+            metaMessages: [
+                `Contract address: ${to}`,
+                `OffchainLookup sender address: ${sender}`
+            ],
+            name: 'OffchainLookupSenderMismatchError'
+        });
+    }
+} //# sourceMappingURL=ccip.js.map
+
+})()),
+"[project]/node_modules/viem/_esm/utils/ccip.js [app-client] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__ }) => (() => {
+"use strict";
+
+__turbopack_esm__({
+    "ccipRequest": ()=>ccipRequest,
+    "offchainLookup": ()=>offchainLookup,
+    "offchainLookupAbiItem": ()=>offchainLookupAbiItem,
+    "offchainLookupSignature": ()=>offchainLookupSignature
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$call$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/actions/public/call.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$ccip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/errors/ccip.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/errors/request.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$decodeErrorResult$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/decodeErrorResult.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/abi/encodeAbiParameters.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$address$2f$isAddressEqual$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/address/isAddressEqual.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$concat$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/data/concat.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$isHex$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/data/isHex.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$ens$2f$localBatchGatewayRequest$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/ens/localBatchGatewayRequest.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$stringify$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/viem/_esm/utils/stringify.js [app-client] (ecmascript)");
+"__TURBOPACK__ecmascript__hoisting__location__";
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const offchainLookupSignature = '0x556f1830';
+const offchainLookupAbiItem = {
+    name: 'OffchainLookup',
+    type: 'error',
+    inputs: [
+        {
+            name: 'sender',
+            type: 'address'
+        },
+        {
+            name: 'urls',
+            type: 'string[]'
+        },
+        {
+            name: 'callData',
+            type: 'bytes'
+        },
+        {
+            name: 'callbackFunction',
+            type: 'bytes4'
+        },
+        {
+            name: 'extraData',
+            type: 'bytes'
+        }
+    ]
+};
+async function offchainLookup(client, { blockNumber, blockTag, data, to }) {
+    const { args } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$decodeErrorResult$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["decodeErrorResult"]({
+        data,
+        abi: [
+            offchainLookupAbiItem
+        ]
+    });
+    const [sender, urls, callData, callbackSelector, extraData] = args;
+    const { ccipRead } = client;
+    const ccipRequest_ = ccipRead && typeof ccipRead?.request === 'function' ? ccipRead.request : ccipRequest;
+    try {
+        if (!__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$address$2f$isAddressEqual$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isAddressEqual"](to, sender)) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$ccip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["OffchainLookupSenderMismatchError"]({
+            sender,
+            to
+        });
+        const result = urls.includes(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$ens$2f$localBatchGatewayRequest$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["localBatchGatewayUrl"]) ? await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$ens$2f$localBatchGatewayRequest$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["localBatchGatewayRequest"]({
+            data: callData,
+            ccipRequest: ccipRequest_
+        }) : await ccipRequest_({
+            data: callData,
+            sender,
+            urls
+        });
+        const { data: data_ } = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$call$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["call"](client, {
+            blockNumber,
+            blockTag,
+            data: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$concat$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["concat"]([
+                callbackSelector,
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["encodeAbiParameters"]([
+                    {
+                        type: 'bytes'
+                    },
+                    {
+                        type: 'bytes'
+                    }
+                ], [
+                    result,
+                    extraData
+                ])
+            ]),
+            to
+        });
+        return data_;
+    } catch (err) {
+        throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$ccip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["OffchainLookupError"]({
+            callbackSelector,
+            cause: err,
+            data,
+            extraData,
+            sender,
+            urls
+        });
+    }
+}
+async function ccipRequest({ data, sender, urls }) {
+    let error = new Error('An unknown error occurred.');
+    for(let i = 0; i < urls.length; i++){
+        const url = urls[i];
+        const method = url.includes('{data}') ? 'GET' : 'POST';
+        const body = method === 'POST' ? {
+            data,
+            sender
+        } : undefined;
+        const headers = method === 'POST' ? {
+            'Content-Type': 'application/json'
+        } : {};
+        try {
+            const response = await fetch(url.replace('{sender}', sender.toLowerCase()).replace('{data}', data), {
+                body: JSON.stringify(body),
+                headers,
+                method
+            });
+            let result;
+            if (response.headers.get('Content-Type')?.startsWith('application/json')) {
+                result = (await response.json()).data;
+            } else {
+                result = await response.text();
+            }
+            if (!response.ok) {
+                error = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HttpRequestError"]({
+                    body,
+                    details: result?.error ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$stringify$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["stringify"](result.error) : response.statusText,
+                    headers: response.headers,
+                    status: response.status,
+                    url
+                });
+                continue;
+            }
+            if (!__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$isHex$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isHex"](result)) {
+                error = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$ccip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["OffchainLookupResponseMalformedError"]({
+                    result,
+                    url
+                });
+                continue;
+            }
+            return result;
+        } catch (err) {
+            error = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HttpRequestError"]({
+                body,
+                details: err.message,
+                url
+            });
+        }
+    }
+    throw error;
+} //# sourceMappingURL=ccip.js.map
+
+})()),
+}]);
+
+//# sourceMappingURL=08b5e_viem__esm_ce775b._.js.map
