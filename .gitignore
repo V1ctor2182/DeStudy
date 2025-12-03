@@ -54,3 +54,10 @@ coverage/
 # Misc
 .cache/
 .parcel-cache/
+
+# Media
+*.mp4
+Destudy-demo.mp4
+
+# Other
+*.gir
