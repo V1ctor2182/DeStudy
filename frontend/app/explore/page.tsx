@@ -48,7 +48,7 @@ export default function ExplorePage() {
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Explore Notes</h1>
             <p className="text-gray-600">
-              {noteCount} {noteCount === 1 ? "note" : "notes"} available
+              Browse all study notes uploaded to the platform
             </p>
           </div>
         </div>
@@ -66,8 +66,13 @@ export default function ExplorePage() {
 
 // Wrapper component to fetch data for each note card
 function NoteCardWithData({ tokenId }: { tokenId: bigint }) {
-  const { metadata, isLoading: metadataLoading } = useNoteMetadata(tokenId);
+  const { metadata, isLoading: metadataLoading, error } = useNoteMetadata(tokenId);
   const { totalTips } = useTotalTips(tokenId);
+
+  // If token doesn't exist (was burned), don't render anything
+  if (error) {
+    return null;
+  }
 
   if (metadataLoading || !metadata) {
     return (

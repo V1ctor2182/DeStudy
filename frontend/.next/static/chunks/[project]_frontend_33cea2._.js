@@ -789,108 +789,16 @@ __turbopack_esm__({
     "ConnectButton": ()=>ConnectButton
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useAccount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useAccount.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useConnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useConnect.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useDisconnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useDisconnect.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$wagmi$2f$core$2f$dist$2f$esm$2f$connectors$2f$injected$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@wagmi/core/dist/esm/connectors/injected.js [app-client] (ecmascript)");
 "__TURBOPACK__ecmascript__hoisting__location__";
-;
-var _s = __turbopack_refresh__.signature();
 "use client";
 ;
-;
-;
 function ConnectButton() {
-    _s();
-    const [mounted, setMounted] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](false);
-    const { address, isConnected } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useAccount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAccount"]();
-    const { connect, error: connectError, isPending } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useConnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useConnect"]();
-    const { disconnect } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useDisconnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDisconnect"]();
-    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"](()=>{
-        setMounted(true);
-    }, []);
-    const handleConnect = ()=>{
-        console.log("Connect button clicked");
-        try {
-            connect({
-                connector: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$wagmi$2f$core$2f$dist$2f$esm$2f$connectors$2f$injected$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["injected"]()
-            });
-        } catch (err) {
-            console.error("Connect error:", err);
-        }
-    };
-    // Log any connection errors
-    if (connectError) {
-        console.error("Wagmi connect error:", connectError);
-    }
-    // Prevent hydration mismatch by not rendering connected state until mounted
-    if (mounted && isConnected && address) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-            className: "flex items-center gap-3",
-            children: [
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
-                    className: "text-sm text-gray-600",
-                    children: [
-                        address.slice(0, 6),
-                        "...",
-                        address.slice(-4)
-                    ]
-                }, void 0, true, {
-                    fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                    lineNumber: 35,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                    onClick: ()=>disconnect(),
-                    className: "px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition",
-                    children: "Disconnect"
-                }, void 0, false, {
-                    fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                    lineNumber: 38,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-            lineNumber: 34,
-            columnNumber: 7
-        }, this);
-    }
-    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-        children: [
-            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                onClick: handleConnect,
-                disabled: isPending,
-                className: "px-4 py-2 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed",
-                children: isPending ? "Connecting..." : "Connect Wallet"
-            }, void 0, false, {
-                fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                lineNumber: 50,
-                columnNumber: 7
-            }, this),
-            connectError && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                className: "absolute top-full right-0 mt-2 p-2 bg-red-50 border border-red-200 rounded text-xs text-red-700 max-w-xs",
-                children: connectError.message
-            }, void 0, false, {
-                fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                lineNumber: 58,
-                columnNumber: 9
-            }, this)
-        ]
-    }, void 0, true, {
+    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("w3m-button", {}, void 0, false, {
         fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-        lineNumber: 49,
-        columnNumber: 5
+        lineNumber: 4,
+        columnNumber: 10
     }, this);
 }
-_s(ConnectButton, "DWtoAKmLeb0koJsln5Au0vyEn0s=", false, function() {
-    return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useAccount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAccount"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useConnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useConnect"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useDisconnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDisconnect"]
-    ];
-});
 _c = ConnectButton;
 var _c;
 __turbopack_refresh__.register(_c, "ConnectButton");
@@ -1120,13 +1028,8 @@ function ExplorePage() {
                             }, this),
                             /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
                                 className: "text-gray-600",
-                                children: [
-                                    noteCount,
-                                    " ",
-                                    noteCount === 1 ? "note" : "notes",
-                                    " available"
-                                ]
-                            }, void 0, true, {
+                                children: "Browse all study notes uploaded to the platform"
+                            }, void 0, false, {
                                 fileName: "<[project]/frontend/app/explore/page.tsx>",
                                 lineNumber: 50,
                                 columnNumber: 13
@@ -1177,19 +1080,23 @@ _c = ExplorePage;
 // Wrapper component to fetch data for each note card
 function NoteCardWithData({ tokenId }) {
     _s1();
-    const { metadata, isLoading: metadataLoading } = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$hooks$2f$useNoteContract$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useNoteMetadata"](tokenId);
+    const { metadata, isLoading: metadataLoading, error } = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$hooks$2f$useNoteContract$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useNoteMetadata"](tokenId);
     const { totalTips } = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$hooks$2f$useRewardVault$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTotalTips"](tokenId);
+    // If token doesn't exist (was burned), don't render anything
+    if (error) {
+        return null;
+    }
     if (metadataLoading || !metadata) {
         return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
             className: "card h-64 flex items-center justify-center",
             children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$common$2f$LoadingSpinner$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LoadingSpinner"], {}, void 0, false, {
                 fileName: "<[project]/frontend/app/explore/page.tsx>",
-                lineNumber: 75,
+                lineNumber: 80,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "<[project]/frontend/app/explore/page.tsx>",
-            lineNumber: 74,
+            lineNumber: 79,
             columnNumber: 7
         }, this);
     }
@@ -1208,11 +1115,11 @@ function NoteCardWithData({ tokenId }) {
         onDelete: handleDelete
     }, void 0, false, {
         fileName: "<[project]/frontend/app/explore/page.tsx>",
-        lineNumber: 86,
+        lineNumber: 91,
         columnNumber: 5
     }, this);
 }
-_s1(NoteCardWithData, "jYmOOhtJHbmKEgfhK2iGlwEq5e0=", false, function() {
+_s1(NoteCardWithData, "TBla9l0PfN8eLHtWmX3ug7XwIyI=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$hooks$2f$useNoteContract$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useNoteMetadata"],
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$hooks$2f$useRewardVault$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTotalTips"]

@@ -872,108 +872,16 @@ __turbopack_esm__({
     "ConnectButton": ()=>ConnectButton
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useAccount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useAccount.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useConnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useConnect.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useDisconnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useDisconnect.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$wagmi$2f$core$2f$dist$2f$esm$2f$connectors$2f$injected$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@wagmi/core/dist/esm/connectors/injected.js [app-client] (ecmascript)");
 "__TURBOPACK__ecmascript__hoisting__location__";
-;
-var _s = __turbopack_refresh__.signature();
 "use client";
 ;
-;
-;
 function ConnectButton() {
-    _s();
-    const [mounted, setMounted] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](false);
-    const { address, isConnected } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useAccount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAccount"]();
-    const { connect, error: connectError, isPending } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useConnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useConnect"]();
-    const { disconnect } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useDisconnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDisconnect"]();
-    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"](()=>{
-        setMounted(true);
-    }, []);
-    const handleConnect = ()=>{
-        console.log("Connect button clicked");
-        try {
-            connect({
-                connector: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$wagmi$2f$core$2f$dist$2f$esm$2f$connectors$2f$injected$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["injected"]()
-            });
-        } catch (err) {
-            console.error("Connect error:", err);
-        }
-    };
-    // Log any connection errors
-    if (connectError) {
-        console.error("Wagmi connect error:", connectError);
-    }
-    // Prevent hydration mismatch by not rendering connected state until mounted
-    if (mounted && isConnected && address) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-            className: "flex items-center gap-3",
-            children: [
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
-                    className: "text-sm text-gray-600",
-                    children: [
-                        address.slice(0, 6),
-                        "...",
-                        address.slice(-4)
-                    ]
-                }, void 0, true, {
-                    fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                    lineNumber: 35,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                    onClick: ()=>disconnect(),
-                    className: "px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition",
-                    children: "Disconnect"
-                }, void 0, false, {
-                    fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                    lineNumber: 38,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-            lineNumber: 34,
-            columnNumber: 7
-        }, this);
-    }
-    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-        children: [
-            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                onClick: handleConnect,
-                disabled: isPending,
-                className: "px-4 py-2 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed",
-                children: isPending ? "Connecting..." : "Connect Wallet"
-            }, void 0, false, {
-                fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                lineNumber: 50,
-                columnNumber: 7
-            }, this),
-            connectError && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                className: "absolute top-full right-0 mt-2 p-2 bg-red-50 border border-red-200 rounded text-xs text-red-700 max-w-xs",
-                children: connectError.message
-            }, void 0, false, {
-                fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                lineNumber: 58,
-                columnNumber: 9
-            }, this)
-        ]
-    }, void 0, true, {
+    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("w3m-button", {}, void 0, false, {
         fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-        lineNumber: 49,
-        columnNumber: 5
+        lineNumber: 4,
+        columnNumber: 10
     }, this);
 }
-_s(ConnectButton, "DWtoAKmLeb0koJsln5Au0vyEn0s=", false, function() {
-    return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useAccount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAccount"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useConnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useConnect"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useDisconnect$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDisconnect"]
-    ];
-});
 _c = ConnectButton;
 var _c;
 __turbopack_refresh__.register(_c, "ConnectButton");
@@ -1102,7 +1010,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$viem$2f$_esm
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 "__TURBOPACK__ecmascript__hoisting__location__";
 ;
-var _s = __turbopack_refresh__.signature();
+var _s = __turbopack_refresh__.signature(), _s1 = __turbopack_refresh__.signature();
 "use client";
 ;
 ;
@@ -1113,8 +1021,199 @@ var _s = __turbopack_refresh__.signature();
 ;
 ;
 ;
-function NoteDetailPage() {
+function ContentPreview({ cid }) {
     _s();
+    const [contentType, setContentType] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](null);
+    const [loading, setLoading] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](true);
+    const [content, setContent] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](null);
+    const gatewayUrl = `https://${cid}.ipfs.w3s.link`;
+    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"](()=>{
+        const fetchContentType = async ()=>{
+            // Handle mock CIDs
+            if (cid.startsWith("Qm") && !cid.includes("ipfs.w3s.link")) {
+                setLoading(false);
+                return;
+            }
+            try {
+                const response = await fetch(gatewayUrl, {
+                    method: "HEAD"
+                });
+                const type = response.headers.get("content-type");
+                setContentType(type);
+                if (type?.includes("text/markdown") || type?.includes("text/plain")) {
+                    const textResponse = await fetch(gatewayUrl);
+                    const text = await textResponse.text();
+                    setContent(text);
+                }
+            } catch (error) {
+                console.error("Error fetching content type:", error);
+            } finally{
+                setLoading(false);
+            }
+        };
+        if (cid) {
+            fetchContentType();
+        }
+    }, [
+        cid,
+        gatewayUrl
+    ]);
+    if (loading) {
+        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$common$2f$LoadingSpinner$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LoadingSpinner"], {}, void 0, false, {
+            fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+            lineNumber: 51,
+            columnNumber: 12
+        }, this);
+    }
+    // Handle Mock CID
+    if (cid.startsWith("Qm") && !contentType) {
+        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+            className: "bg-yellow-50 border border-yellow-200 rounded-lg p-8 text-center",
+            children: [
+                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                    className: "text-4xl mb-4",
+                    children: "🚧"
+                }, void 0, false, {
+                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                    lineNumber: 58,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("h3", {
+                    className: "text-lg font-semibold text-yellow-900 mb-2",
+                    children: "Development Mode"
+                }, void 0, false, {
+                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                    lineNumber: 59,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                    className: "text-yellow-800 mb-4",
+                    children: [
+                        "This note was uploaded using the mock IPFS uploader.",
+                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("br", {}, void 0, false, {
+                            fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                            lineNumber: 62,
+                            columnNumber: 11
+                        }, this),
+                        "Real content preview is not available."
+                    ]
+                }, void 0, true, {
+                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                    lineNumber: 60,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                    className: "text-xs text-yellow-700 font-mono bg-yellow-100 inline-block px-2 py-1 rounded",
+                    children: [
+                        "CID: ",
+                        cid
+                    ]
+                }, void 0, true, {
+                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                    lineNumber: 65,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+            lineNumber: 57,
+            columnNumber: 7
+        }, this);
+    }
+    if (contentType?.startsWith("image/")) {
+        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+            className: "relative w-full h-[600px] bg-black/5 rounded-lg overflow-hidden",
+            children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("img", {
+                src: gatewayUrl,
+                alt: "Note content",
+                className: "object-contain w-full h-full"
+            }, void 0, false, {
+                fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                lineNumber: 76,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+            lineNumber: 74,
+            columnNumber: 7
+        }, this);
+    }
+    if (contentType === "application/pdf") {
+        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+            className: "w-full h-[800px] bg-gray-100 rounded-lg overflow-hidden",
+            children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("iframe", {
+                src: `${gatewayUrl}#toolbar=0`,
+                className: "w-full h-full",
+                title: "PDF Viewer"
+            }, void 0, false, {
+                fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                lineNumber: 88,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+            lineNumber: 87,
+            columnNumber: 7
+        }, this);
+    }
+    if (content) {
+        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+            className: "prose max-w-none bg-white p-8 rounded-lg border border-gray-200 overflow-auto max-h-[800px]",
+            children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("pre", {
+                className: "whitespace-pre-wrap font-sans",
+                children: content
+            }, void 0, false, {
+                fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                lineNumber: 100,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+            lineNumber: 99,
+            columnNumber: 7
+        }, this);
+    }
+    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+        className: "text-center py-12",
+        children: [
+            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                className: "text-4xl mb-4",
+                children: "📄"
+            }, void 0, false, {
+                fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                lineNumber: 107,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                className: "text-gray-600 mb-4",
+                children: "Preview not available for this file type."
+            }, void 0, false, {
+                fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                lineNumber: 108,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("a", {
+                href: gatewayUrl,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "btn-primary inline-block",
+                children: "Download / View File"
+            }, void 0, false, {
+                fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                lineNumber: 109,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+        lineNumber: 106,
+        columnNumber: 5
+    }, this);
+}
+_s(ContentPreview, "o2mq0zAnEUwsjbHDP+YKFz4PMxo=");
+_c = ContentPreview;
+function NoteDetailPage() {
+    _s1();
     const params = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useParams"]();
     const tokenId = params.id ? BigInt(params.id) : undefined;
     const [tipSuccess, setTipSuccess] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](false);
@@ -1131,17 +1230,17 @@ function NoteDetailPage() {
                     children: "Invalid note ID"
                 }, void 0, false, {
                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                    lineNumber: 27,
+                    lineNumber: 135,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                lineNumber: 26,
+                lineNumber: 134,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-            lineNumber: 25,
+            lineNumber: 133,
             columnNumber: 7
         }, this);
     }
@@ -1153,17 +1252,17 @@ function NoteDetailPage() {
                     size: "lg"
                 }, void 0, false, {
                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                    lineNumber: 37,
+                    lineNumber: 145,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                lineNumber: 36,
+                lineNumber: 144,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-            lineNumber: 35,
+            lineNumber: 143,
             columnNumber: 7
         }, this);
     }
@@ -1177,7 +1276,7 @@ function NoteDetailPage() {
                         children: "Note Not Found"
                     }, void 0, false, {
                         fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                        lineNumber: 47,
+                        lineNumber: 155,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
@@ -1185,18 +1284,18 @@ function NoteDetailPage() {
                         children: "This note does not exist or has not been minted yet."
                     }, void 0, false, {
                         fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                        lineNumber: 48,
+                        lineNumber: 156,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                lineNumber: 46,
+                lineNumber: 154,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-            lineNumber: 45,
+            lineNumber: 153,
             columnNumber: 7
         }, this);
     }
@@ -1225,7 +1324,7 @@ function NoteDetailPage() {
                                     children: metadata.courseId
                                 }, void 0, false, {
                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                    lineNumber: 72,
+                                    lineNumber: 180,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
@@ -1233,13 +1332,13 @@ function NoteDetailPage() {
                                     children: metadata.version
                                 }, void 0, false, {
                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                    lineNumber: 73,
+                                    lineNumber: 181,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                            lineNumber: 71,
+                            lineNumber: 179,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
@@ -1250,13 +1349,13 @@ function NoteDetailPage() {
                             ]
                         }, void 0, true, {
                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                            lineNumber: 77,
+                            lineNumber: 185,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                    lineNumber: 70,
+                    lineNumber: 178,
                     columnNumber: 9
                 }, this),
                 tipSuccess && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1266,12 +1365,12 @@ function NoteDetailPage() {
                         children: "🎉 Tip sent successfully!"
                     }, void 0, false, {
                         fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                        lineNumber: 83,
+                        lineNumber: 191,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                    lineNumber: 82,
+                    lineNumber: 190,
                     columnNumber: 11
                 }, this),
                 tipError && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1281,12 +1380,12 @@ function NoteDetailPage() {
                         children: tipError
                     }, void 0, false, {
                         fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                        lineNumber: 89,
+                        lineNumber: 197,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                    lineNumber: 88,
+                    lineNumber: 196,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1303,7 +1402,7 @@ function NoteDetailPage() {
                                             children: "Metadata"
                                         }, void 0, false, {
                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                            lineNumber: 98,
+                                            lineNumber: 206,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("dl", {
@@ -1316,7 +1415,7 @@ function NoteDetailPage() {
                                                             children: "Author"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 101,
+                                                            lineNumber: 209,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("dd", {
@@ -1324,13 +1423,13 @@ function NoteDetailPage() {
                                                             children: metadata.author
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 102,
+                                                            lineNumber: 210,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 100,
+                                                    lineNumber: 208,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1340,7 +1439,7 @@ function NoteDetailPage() {
                                                             children: "Course ID"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 107,
+                                                            lineNumber: 215,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("dd", {
@@ -1348,13 +1447,13 @@ function NoteDetailPage() {
                                                             children: metadata.courseId
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 108,
+                                                            lineNumber: 216,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 106,
+                                                    lineNumber: 214,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1364,7 +1463,7 @@ function NoteDetailPage() {
                                                             children: "Version"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 111,
+                                                            lineNumber: 219,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("dd", {
@@ -1372,13 +1471,13 @@ function NoteDetailPage() {
                                                             children: metadata.version
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 112,
+                                                            lineNumber: 220,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 110,
+                                                    lineNumber: 218,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1388,7 +1487,7 @@ function NoteDetailPage() {
                                                             children: "IPFS CID"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 115,
+                                                            lineNumber: 223,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("dd", {
@@ -1396,13 +1495,13 @@ function NoteDetailPage() {
                                                             children: metadata.cid
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 116,
+                                                            lineNumber: 224,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 114,
+                                                    lineNumber: 222,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1412,7 +1511,7 @@ function NoteDetailPage() {
                                                             children: "Created"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 119,
+                                                            lineNumber: 227,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("dd", {
@@ -1420,13 +1519,13 @@ function NoteDetailPage() {
                                                             children: new Date(Number(metadata.createdAt) * 1000).toLocaleDateString()
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 120,
+                                                            lineNumber: 228,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 118,
+                                                    lineNumber: 226,
                                                     columnNumber: 17
                                                 }, this),
                                                 metadata.previewCid && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1436,7 +1535,7 @@ function NoteDetailPage() {
                                                             children: "Preview CID"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 126,
+                                                            lineNumber: 234,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("dd", {
@@ -1444,25 +1543,25 @@ function NoteDetailPage() {
                                                             children: metadata.previewCid
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 127,
+                                                            lineNumber: 235,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 125,
+                                                    lineNumber: 233,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                            lineNumber: 99,
+                                            lineNumber: 207,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                    lineNumber: 97,
+                                    lineNumber: 205,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1473,80 +1572,27 @@ function NoteDetailPage() {
                                             children: "Content"
                                         }, void 0, false, {
                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                            lineNumber: 137,
+                                            lineNumber: 245,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                            className: "bg-gray-50 border border-gray-200 rounded-lg p-6 text-center",
-                                            children: [
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                    className: "text-4xl mb-4",
-                                                    children: "📄"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 139,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                                    className: "text-gray-600 mb-2",
-                                                    children: "Content CID (Mock for MVP)"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 140,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                                    className: "text-xs text-gray-500 mb-4 font-mono break-all px-4",
-                                                    children: metadata.cid
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 143,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                    className: "bg-blue-50 border border-blue-200 rounded-lg p-4 text-left",
-                                                    children: [
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                                            className: "text-sm text-blue-800 mb-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("strong", {
-                                                                    children: "MVP Note:"
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                                    lineNumber: 148,
-                                                                    columnNumber: 21
-                                                                }, this),
-                                                                " This is using mock IPFS for local development."
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 147,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                                            className: "text-xs text-blue-700",
-                                                            children: "For production, integrate with Web3.Storage or Pinata to store actual files on IPFS."
-                                                        }, void 0, false, {
-                                                            fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 150,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 146,
-                                                    columnNumber: 17
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
+                                            className: "bg-gray-50 border border-gray-200 rounded-lg p-6",
+                                            children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](ContentPreview, {
+                                                cid: metadata.cid
+                                            }, void 0, false, {
+                                                fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
+                                                lineNumber: 247,
+                                                columnNumber: 17
+                                            }, this)
+                                        }, void 0, false, {
                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                            lineNumber: 138,
+                                            lineNumber: 246,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                    lineNumber: 136,
+                                    lineNumber: 244,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1557,7 +1603,7 @@ function NoteDetailPage() {
                                             children: "Statistics"
                                         }, void 0, false, {
                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                            lineNumber: 159,
+                                            lineNumber: 253,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1574,7 +1620,7 @@ function NoteDetailPage() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 162,
+                                                            lineNumber: 256,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1582,13 +1628,13 @@ function NoteDetailPage() {
                                                             children: "Total Tips"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 165,
+                                                            lineNumber: 259,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 161,
+                                                    lineNumber: 255,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1602,7 +1648,7 @@ function NoteDetailPage() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 168,
+                                                            lineNumber: 262,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1610,31 +1656,31 @@ function NoteDetailPage() {
                                                             children: "Token ID"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                            lineNumber: 169,
+                                                            lineNumber: 263,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                                    lineNumber: 167,
+                                                    lineNumber: 261,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                            lineNumber: 160,
+                                            lineNumber: 254,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                    lineNumber: 158,
+                                    lineNumber: 252,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                            lineNumber: 95,
+                            lineNumber: 203,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1646,41 +1692,41 @@ function NoteDetailPage() {
                                     onTipError: handleTipError
                                 }, void 0, false, {
                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                    lineNumber: 177,
+                                    lineNumber: 271,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$note$2f$DeleteNoteButton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DeleteNoteButton"], {
                                     tokenId: tokenId
                                 }, void 0, false, {
                                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                                    lineNumber: 184,
+                                    lineNumber: 278,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                            lineNumber: 176,
+                            lineNumber: 270,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-                    lineNumber: 93,
+                    lineNumber: 201,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-            lineNumber: 68,
+            lineNumber: 176,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "<[project]/frontend/app/note/[id]/page.tsx>",
-        lineNumber: 67,
+        lineNumber: 175,
         columnNumber: 5
     }, this);
 }
-_s(NoteDetailPage, "MpQjsMtFEDt9xDgXVxwTMVDR9Tg=", false, function() {
+_s1(NoteDetailPage, "MpQjsMtFEDt9xDgXVxwTMVDR9Tg=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useParams"],
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$hooks$2f$useNoteContract$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useNoteMetadata"],
@@ -1688,9 +1734,10 @@ _s(NoteDetailPage, "MpQjsMtFEDt9xDgXVxwTMVDR9Tg=", false, function() {
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$hooks$2f$useRewardVault$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTotalTips"]
     ];
 });
-_c = NoteDetailPage;
-var _c;
-__turbopack_refresh__.register(_c, "NoteDetailPage");
+_c1 = NoteDetailPage;
+var _c, _c1;
+__turbopack_refresh__.register(_c, "ContentPreview");
+__turbopack_refresh__.register(_c1, "NoteDetailPage");
 
 })()),
 }]);

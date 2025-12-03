@@ -24,7 +24,7 @@ if lsof -Pi :8545 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
 else
     echo -e "${GREEN}📦 Starting Hardhat node...${NC}"
     cd contracts
-    nohup npx hardhat node --port 8545 > ../logs/hardhat.log 2>&1 &
+    nohup npx hardhat node --hostname 0.0.0.0 --port 8545 > ../logs/hardhat.log 2>&1 &
     HARDHAT_PID=$!
     echo $HARDHAT_PID > ../logs/hardhat.pid
     cd ..
@@ -51,8 +51,8 @@ fi
 echo ""
 
 # Check if frontend is already running
-if lsof -Pi :3001 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
-    echo -e "${YELLOW}⚠️  Frontend already running on port 3001${NC}"
+if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+    echo -e "${YELLOW}⚠️  Frontend already running on port 3000${NC}"
 else
     echo -e "${GREEN}⚛️  Starting Next.js frontend...${NC}"
     cd frontend
@@ -65,7 +65,7 @@ else
     echo "   Waiting for frontend to start..."
     sleep 5
 
-    if lsof -Pi :3001 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+    if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
         echo -e "${GREEN}   ✅ Frontend started (PID: $FRONTEND_PID)${NC}"
     else
         echo -e "${RED}   ❌ Failed to start frontend${NC}"
@@ -78,7 +78,7 @@ echo -e "${GREEN}✨ DeStudy Development Environment is ready!${NC}"
 echo ""
 echo "📍 Services:"
 echo "   • Hardhat Node:  http://127.0.0.1:8545"
-echo "   • Frontend:      http://localhost:3001"
+echo "   • Frontend:      http://localhost:3000"
 echo ""
 echo "📝 Logs:"
 echo "   • Hardhat:       logs/hardhat.log"

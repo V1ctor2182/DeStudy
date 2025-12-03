@@ -79,11 +79,10 @@ export function FileUploader({ onUploadComplete, onError }: FileUploaderProps) {
     <div className="w-full max-w-xl mx-auto">
       {/* File Input */}
       <div
-        className={`border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition ${
-          isDragging
+        className={`border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition ${isDragging
             ? "border-primary-600 bg-primary-50"
             : "border-gray-300 hover:border-primary-500"
-        }`}
+          }`}
         onClick={() => fileInputRef.current?.click()}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -99,12 +98,25 @@ export function FileUploader({ onUploadComplete, onError }: FileUploaderProps) {
         />
 
         {file ? (
-          <div>
-            <div className="text-4xl mb-4">📄</div>
-            <p className="text-lg font-medium text-gray-900">{file.name}</p>
-            <p className="text-sm text-gray-500 mt-1">
-              {(file.size / 1024 / 1024).toFixed(2)} MB
-            </p>
+          <div className="space-y-4">
+            {file.type.startsWith("image/") ? (
+              <div className="relative w-full h-48 mx-auto overflow-hidden rounded-lg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={URL.createObjectURL(file)}
+                  alt="Preview"
+                  className="object-contain w-full h-full"
+                />
+              </div>
+            ) : (
+              <div className="text-4xl mb-4">📄</div>
+            )}
+            <div>
+              <p className="text-lg font-medium text-gray-900">{file.name}</p>
+              <p className="text-sm text-gray-500 mt-1">
+                {(file.size / 1024 / 1024).toFixed(2)} MB
+              </p>
+            </div>
           </div>
         ) : (
           <div>

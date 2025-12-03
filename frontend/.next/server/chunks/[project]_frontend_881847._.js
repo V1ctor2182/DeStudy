@@ -510,7 +510,75 @@ function MintForm({ cid, onMintSuccess, onMintError }) {
  */ __turbopack_esm__({
     "uploadToIPFS": ()=>uploadToIPFS
 });
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$web3$2e$storage$2f$src$2f$lib$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$7b$module__evaluation$7d$__ = __turbopack_import__("[project]/node_modules/web3.storage/src/lib.js [app-ssr] (ecmascript) {module evaluation}");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$web3$2e$storage$2f$src$2f$lib$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$7b$locals$7d$__ = __turbopack_import__("[project]/node_modules/web3.storage/src/lib.js [app-ssr] (ecmascript) {locals}");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$ipfs$2f$pinata$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/frontend/lib/ipfs/pinata.ts [app-ssr] (ecmascript)");
+"__TURBOPACK__ecmascript__hoisting__location__";
+;
+;
 async function uploadToIPFS(file, onProgress) {
+    // 1. Try Pinata first (Recommended)
+    const pinataToken = ("TURBOPACK compile-time value", "");
+    if ("TURBOPACK compile-time falsy", 0) {
+        "TURBOPACK unreachable";
+    }
+    // 2. Try Web3.Storage (Legacy/Backup)
+    const web3StorageToken = ("TURBOPACK compile-time value", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI3OWNlZjU2OC02OTFjLTRiMjMtOTlmZi0zMGFkN2RkZTYxZDgiLCJlbWFpbCI6InZpY3RvcnpoYW5nMDIxOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJGUkExIn0seyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJOWUMxIn1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiZDhjNDY1YmU5ZTZhYzI3NzAwOTAiLCJzY29wZWRLZXlTZWNyZXQiOiI3MWU1NmFjOWEzNjcwMDRlZmRmNTMxMTlmNTU0ODI0NWQwOGZhZjdlNmM3YzdjNDUxZjU5MWYzNTY2MjJkNGE3IiwiZXhwIjoxNzk1Mjk2ODYzfQ.NkAunvFkQY_SqKJrYZz-5IlwdXSbHuZn4mJfok6ljgU");
+    if ("TURBOPACK compile-time truthy", 1) {
+        console.log("Using Web3.Storage for IPFS upload...");
+        const client = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$web3$2e$storage$2f$src$2f$lib$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$7b$locals$7d$__["Web3Storage"]({
+            token: web3StorageToken
+        });
+        onProgress?.({
+            loaded: 0,
+            total: file.size,
+            percentage: 0
+        });
+        console.log("Starting IPFS upload with Web3.Storage...");
+        let uploadedSize = 0;
+        try {
+            const cid = await client.put([
+                file
+            ], {
+                wrapWithDirectory: false,
+                onRootCidReady: (cid)=>{
+                    console.log("Root CID ready:", cid);
+                    onProgress?.({
+                        loaded: 0,
+                        total: file.size,
+                        percentage: 1
+                    });
+                },
+                onStoredChunk: (size)=>{
+                    uploadedSize += size;
+                    const percentage = Math.min(99, Math.round(uploadedSize / file.size * 100));
+                    console.log(`Stored chunk: ${size} bytes. Total: ${uploadedSize}/${file.size} (${percentage}%)`);
+                    onProgress?.({
+                        loaded: uploadedSize,
+                        total: file.size,
+                        percentage: percentage
+                    });
+                }
+            });
+            console.log("Upload complete. CID:", cid);
+            onProgress?.({
+                loaded: file.size,
+                total: file.size,
+                percentage: 100
+            });
+            return {
+                cid,
+                size: file.size,
+                url: `https://${cid}.ipfs.w3s.link`
+            };
+        } catch (error) {
+            console.error("Web3.Storage upload failed:", error);
+            // Fall through to mock if Web3.Storage fails
+            console.warn("Web3.Storage failed, falling back to mock");
+        }
+    }
+    // 3. Fallback to Mock Mode
+    console.warn("No valid IPFS token found (Pinata or Web3.Storage), using Mock Mode");
     // Simulate upload progress
     const simulateProgress = async ()=>{
         for(let i = 0; i <= 100; i += 10){
@@ -528,7 +596,7 @@ async function uploadToIPFS(file, onProgress) {
     return {
         cid: mockCID,
         size: file.size,
-        url: `ipfs://${mockCID}`
+        url: `https://mock.ipfs/${mockCID}`
     };
 }
 // Generate a deterministic mock CID based on file name and size
@@ -540,44 +608,7 @@ function generateMockCID(fileName, fileSize) {
     // Format as IPFS CID (Qm... format)
     const timestamp = Date.now();
     return `Qm${combined.toString(36).padStart(10, "0")}${timestamp.toString(36)}`;
-} // For production, use Web3.Storage:
- /*
-import { Web3Storage } from "web3.storage";
-
-export async function uploadToIPFS(
-  file: File,
-  onProgress?: (progress: UploadProgress) => void
-): Promise<UploadResult> {
-  const client = new Web3Storage({
-    token: process.env.NEXT_PUBLIC_WEB3_STORAGE_TOKEN!,
-  });
-
-  const cid = await client.put([file], {
-    onRootCidReady: () => {
-      onProgress?.({
-        loaded: file.size / 2,
-        total: file.size,
-        percentage: 50,
-      });
-    },
-    onStoredChunk: (size) => {
-      // Update progress
-    },
-  });
-
-  onProgress?.({
-    loaded: file.size,
-    total: file.size,
-    percentage: 100,
-  });
-
-  return {
-    cid,
-    size: file.size,
-    url: `https://w3s.link/ipfs/${cid}`,
-  };
 }
-*/ 
 
 })()),
 "[project]/frontend/hooks/useIPFS.ts [app-ssr] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__ }) => (() => {
@@ -724,42 +755,66 @@ function FileUploader({ onUploadComplete, onError }) {
                         disabled: uploading
                     }, void 0, false, {
                         fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                        lineNumber: 92,
+                        lineNumber: 91,
                         columnNumber: 9
                     }, this),
                     file ? /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                        className: "space-y-4",
                         children: [
-                            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                            file.type.startsWith("image/") ? /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                                className: "relative w-full h-48 mx-auto overflow-hidden rounded-lg",
+                                children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("img", {
+                                    src: URL.createObjectURL(file),
+                                    alt: "Preview",
+                                    className: "object-contain w-full h-full"
+                                }, void 0, false, {
+                                    fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
+                                    lineNumber: 105,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
+                                lineNumber: 103,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
                                 className: "text-4xl mb-4",
                                 children: "📄"
                             }, void 0, false, {
                                 fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                                lineNumber: 103,
-                                columnNumber: 13
+                                lineNumber: 112,
+                                columnNumber: 15
                             }, this),
-                            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                className: "text-lg font-medium text-gray-900",
-                                children: file.name
-                            }, void 0, false, {
-                                fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                                lineNumber: 104,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                className: "text-sm text-gray-500 mt-1",
+                            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
                                 children: [
-                                    (file.size / 1024 / 1024).toFixed(2),
-                                    " MB"
+                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                                        className: "text-lg font-medium text-gray-900",
+                                        children: file.name
+                                    }, void 0, false, {
+                                        fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
+                                        lineNumber: 115,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                                        className: "text-sm text-gray-500 mt-1",
+                                        children: [
+                                            (file.size / 1024 / 1024).toFixed(2),
+                                            " MB"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
+                                        lineNumber: 116,
+                                        columnNumber: 15
+                                    }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                                lineNumber: 105,
+                                lineNumber: 114,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                        lineNumber: 102,
+                        lineNumber: 101,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
                         children: [
@@ -768,7 +823,7 @@ function FileUploader({ onUploadComplete, onError }) {
                                 children: "📁"
                             }, void 0, false, {
                                 fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                                lineNumber: 111,
+                                lineNumber: 123,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
@@ -776,7 +831,7 @@ function FileUploader({ onUploadComplete, onError }) {
                                 children: "Click to upload or drag and drop"
                             }, void 0, false, {
                                 fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                                lineNumber: 112,
+                                lineNumber: 124,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
@@ -784,13 +839,13 @@ function FileUploader({ onUploadComplete, onError }) {
                                 children: "PDF, MD, PNG, JPG (max 50MB)"
                             }, void 0, false, {
                                 fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                                lineNumber: 113,
+                                lineNumber: 125,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                        lineNumber: 110,
+                        lineNumber: 122,
                         columnNumber: 11
                     }, this)
                 ]
@@ -805,7 +860,7 @@ function FileUploader({ onUploadComplete, onError }) {
                 children: "Upload to IPFS"
             }, void 0, false, {
                 fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                lineNumber: 120,
+                lineNumber: 132,
                 columnNumber: 9
             }, this),
             uploading && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -820,12 +875,12 @@ function FileUploader({ onUploadComplete, onError }) {
                             }
                         }, void 0, false, {
                             fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                            lineNumber: 132,
+                            lineNumber: 144,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                        lineNumber: 131,
+                        lineNumber: 143,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
@@ -836,13 +891,13 @@ function FileUploader({ onUploadComplete, onError }) {
                         ]
                     }, void 0, true, {
                         fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                        lineNumber: 137,
+                        lineNumber: 149,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "<[project]/frontend/components/upload/FileUploader.tsx>",
-                lineNumber: 130,
+                lineNumber: 142,
                 columnNumber: 9
             }, this)
         ]
@@ -993,97 +1048,14 @@ __turbopack_esm__({
     "ConnectButton": ()=>ConnectButton
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useAccount$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useAccount.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useConnect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useConnect.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useDisconnect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/wagmi/dist/esm/hooks/useDisconnect.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$wagmi$2f$core$2f$dist$2f$esm$2f$connectors$2f$injected$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@wagmi/core/dist/esm/connectors/injected.js [app-ssr] (ecmascript)");
 "__TURBOPACK__ecmascript__hoisting__location__";
 "use client";
 ;
-;
-;
-;
 function ConnectButton() {
-    const [mounted, setMounted] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"](false);
-    const { address, isConnected } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useAccount$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAccount"]();
-    const { connect, error: connectError, isPending } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useConnect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useConnect"]();
-    const { disconnect } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wagmi$2f$dist$2f$esm$2f$hooks$2f$useDisconnect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useDisconnect"]();
-    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"](()=>{
-        setMounted(true);
-    }, []);
-    const handleConnect = ()=>{
-        console.log("Connect button clicked");
-        try {
-            connect({
-                connector: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$wagmi$2f$core$2f$dist$2f$esm$2f$connectors$2f$injected$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["injected"]()
-            });
-        } catch (err) {
-            console.error("Connect error:", err);
-        }
-    };
-    // Log any connection errors
-    if (connectError) {
-        console.error("Wagmi connect error:", connectError);
-    }
-    // Prevent hydration mismatch by not rendering connected state until mounted
-    if (mounted && isConnected && address) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-            className: "flex items-center gap-3",
-            children: [
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
-                    className: "text-sm text-gray-600",
-                    children: [
-                        address.slice(0, 6),
-                        "...",
-                        address.slice(-4)
-                    ]
-                }, void 0, true, {
-                    fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                    lineNumber: 35,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                    onClick: ()=>disconnect(),
-                    className: "px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition",
-                    children: "Disconnect"
-                }, void 0, false, {
-                    fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                    lineNumber: 38,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-            lineNumber: 34,
-            columnNumber: 7
-        }, this);
-    }
-    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-        children: [
-            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                onClick: handleConnect,
-                disabled: isPending,
-                className: "px-4 py-2 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed",
-                children: isPending ? "Connecting..." : "Connect Wallet"
-            }, void 0, false, {
-                fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                lineNumber: 50,
-                columnNumber: 7
-            }, this),
-            connectError && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                className: "absolute top-full right-0 mt-2 p-2 bg-red-50 border border-red-200 rounded text-xs text-red-700 max-w-xs",
-                children: connectError.message
-            }, void 0, false, {
-                fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-                lineNumber: 58,
-                columnNumber: 9
-            }, this)
-        ]
-    }, void 0, true, {
+    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"]("w3m-button", {}, void 0, false, {
         fileName: "<[project]/frontend/components/wallet/ConnectButton.tsx>",
-        lineNumber: 49,
-        columnNumber: 5
+        lineNumber: 4,
+        columnNumber: 10
     }, this);
 }
 

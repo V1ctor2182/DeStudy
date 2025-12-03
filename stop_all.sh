@@ -42,9 +42,9 @@ if [ -f "logs/hardhat.pid" ]; then
 fi
 
 # Fallback: Kill by port if PID files don't work
-if lsof -Pi :3001 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
     echo -e "${YELLOW}⚛️  Stopping Next.js frontend (by port)...${NC}"
-    lsof -ti:3001 | xargs kill -9 2>/dev/null || true
+    lsof -ti:3000 | xargs kill -9 2>/dev/null || true
     STOPPED_ANY=true
 fi
 
@@ -73,8 +73,8 @@ else
     echo -e "${GREEN}✅ Hardhat node stopped${NC}"
 fi
 
-if lsof -Pi :3001 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
-    echo -e "${RED}❌ Frontend still running on port 3001${NC}"
+if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+    echo -e "${RED}❌ Frontend still running on port 3000${NC}"
     STILL_RUNNING=true
 else
     echo -e "${GREEN}✅ Frontend stopped${NC}"

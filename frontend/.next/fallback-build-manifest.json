@@ -1,6 +1,29 @@
 {
   "pages": {
-    "/_app": []
+    "/_app": [
+      "static/chunks/08b5e_next_14aeda._.js",
+      "static/chunks/08b5e_react_6870b8._.js",
+      "static/chunks/08b5e_react-dom_cjs_react-dom_development_ab7e07.js",
+      "static/chunks/08b5e_react-dom_f14d04._.js",
+      "static/chunks/08b5e_851dd9._.js",
+      "static/chunks/[root of the server]__f6dcf2._.js",
+      "static/chunks/08b5e_next_dist_pages_a40385._.js",
+      "static/chunks/[next]_entry_page-loader_ts_9faa43._.js",
+      "static/chunks/[next]_entry_page-loader_ts_061b6f._.js",
+      "static/chunks/pages/_app.js"
+    ],
+    "/_error": [
+      "static/chunks/08b5e_next_1b663a._.js",
+      "static/chunks/08b5e_react_6870b8._.js",
+      "static/chunks/08b5e_react-dom_cjs_react-dom_development_ab7e07.js",
+      "static/chunks/08b5e_react-dom_f14d04._.js",
+      "static/chunks/08b5e_851dd9._.js",
+      "static/chunks/[root of the server]__ec79c2._.js",
+      "static/chunks/08b5e_next_dist_pages_047766._.js",
+      "static/chunks/[next]_entry_page-loader_ts_46ab28._.js",
+      "static/chunks/[next]_entry_page-loader_ts_2752b2._.js",
+      "static/chunks/pages/_error.js"
+    ]
   },
   "devFiles": [],
   "ampDevFiles": [],

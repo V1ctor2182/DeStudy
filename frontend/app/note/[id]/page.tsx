@@ -8,7 +8,115 @@ import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 import { useNoteMetadata, useAuthorOf } from "@/hooks/useNoteContract";
 import { useTotalTips } from "@/hooks/useRewardVault";
 import { formatEther } from "viem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+function ContentPreview({ cid }: { cid: string }) {
+  const [contentType, setContentType] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [content, setContent] = useState<string | null>(null);
+
+  const gatewayUrl = `https://${cid}.ipfs.w3s.link`;
+
+  useEffect(() => {
+    const fetchContentType = async () => {
+      // Handle mock CIDs
+      if (cid.startsWith("Qm") && !cid.includes("ipfs.w3s.link")) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const response = await fetch(gatewayUrl, { method: "HEAD" });
+        const type = response.headers.get("content-type");
+        setContentType(type);
+
+        if (type?.includes("text/markdown") || type?.includes("text/plain")) {
+          const textResponse = await fetch(gatewayUrl);
+          const text = await textResponse.text();
+          setContent(text);
+        }
+      } catch (error) {
+        console.error("Error fetching content type:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (cid) {
+      fetchContentType();
+    }
+  }, [cid, gatewayUrl]);
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  // Handle Mock CID
+  if (cid.startsWith("Qm") && !contentType) {
+    return (
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 text-center">
+        <div className="text-4xl mb-4">🚧</div>
+        <h3 className="text-lg font-semibold text-yellow-900 mb-2">Development Mode</h3>
+        <p className="text-yellow-800 mb-4">
+          This note was uploaded using the mock IPFS uploader.
+          <br />
+          Real content preview is not available.
+        </p>
+        <p className="text-xs text-yellow-700 font-mono bg-yellow-100 inline-block px-2 py-1 rounded">
+          CID: {cid}
+        </p>
+      </div>
+    );
+  }
+
+  if (contentType?.startsWith("image/")) {
+    return (
+      <div className="relative w-full h-[600px] bg-black/5 rounded-lg overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={gatewayUrl}
+          alt="Note content"
+          className="object-contain w-full h-full"
+        />
+      </div>
+    );
+  }
+
+  if (contentType === "application/pdf") {
+    return (
+      <div className="w-full h-[800px] bg-gray-100 rounded-lg overflow-hidden">
+        <iframe
+          src={`${gatewayUrl}#toolbar=0`}
+          className="w-full h-full"
+          title="PDF Viewer"
+        />
+      </div>
+    );
+  }
+
+  if (content) {
+    return (
+      <div className="prose max-w-none bg-white p-8 rounded-lg border border-gray-200 overflow-auto max-h-[800px]">
+        <pre className="whitespace-pre-wrap font-sans">{content}</pre>
+      </div>
+    );
+  }
+
+  return (
+    <div className="text-center py-12">
+      <div className="text-4xl mb-4">📄</div>
+      <p className="text-gray-600 mb-4">Preview not available for this file type.</p>
+      <a
+        href={gatewayUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-primary inline-block"
+      >
+        Download / View File
+      </a>
+    </div>
+  );
+}
 
 export default function NoteDetailPage() {
   const params = useParams();
@@ -135,22 +243,8 @@ export default function NoteDetailPage() {
             {/* Content Preview */}
             <div className="card">
               <h2 className="text-xl font-semibold mb-4">Content</h2>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
-                <div className="text-4xl mb-4">📄</div>
-                <p className="text-gray-600 mb-2">
-                  Content CID (Mock for MVP)
-                </p>
-                <p className="text-xs text-gray-500 mb-4 font-mono break-all px-4">
-                  {metadata.cid}
-                </p>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-left">
-                  <p className="text-sm text-blue-800 mb-2">
-                    <strong>MVP Note:</strong> This is using mock IPFS for local development.
-                  </p>
-                  <p className="text-xs text-blue-700">
-                    For production, integrate with Web3.Storage or Pinata to store actual files on IPFS.
-                  </p>
-                </div>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <ContentPreview cid={metadata.cid} />
               </div>
             </div>
 
