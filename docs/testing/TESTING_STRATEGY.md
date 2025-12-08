@@ -1,7 +1,5 @@
 # Testing Strategy v0.1
 
-**Date**: 2025-11-10
-**Status**: Draft
 **Coverage Target**: Contracts 100%, Frontend 80%, E2E Critical Paths
 
 ---
@@ -1071,9 +1069,3 @@ After each sprint:
 - Review test effectiveness
 - Identify gaps in coverage
 - Update test strategy as needed
-
----
-
-**Document Version**: 0.1
-**Last Updated**: 2025-11-10
-**Next Review**: After testing implementation (D12)

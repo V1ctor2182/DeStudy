@@ -1,10 +1,4 @@
-# Smart Contract Specifications v0.1
-
-**Date**: 2025-11-10
-**Status**: Draft
-**Solidity Version**: 0.8.20+
-
----
+# Smart Contract Specifications
 
 ## 1. Overview
 
@@ -826,9 +820,3 @@ For MVP, contracts are **immutable** (no upgradeability). If upgrades are needed
 - EIP-2981: https://eips.ethereum.org/EIPS/eip-2981
 - Solidity Style Guide: https://docs.soliditylang.org/en/latest/style-guide.html
 - Smart Contract Best Practices: https://consensys.github.io/smart-contract-best-practices/
-
----
-
-**Document Version**: 0.1
-**Last Updated**: 2025-11-10
-**Next Review**: After contract implementation (D5)

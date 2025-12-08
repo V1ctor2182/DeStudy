@@ -1,10 +1,4 @@
-# DeStudy Technical Architecture v0.1
-
-**Date**: 2025-11-10
-**Status**: Draft
-**Owner**: Tech Lead
-
----
+# DeStudy Technical Architecture
 
 ## 1. System Overview
 
@@ -663,21 +657,3 @@ See [TESTING_STRATEGY.md](../testing/TESTING_STRATEGY.md) for detailed testing a
 
 5. **Authentication**: Wallet-only vs Email backup
    - **Decision**: Wallet-only for MVP (simplicity)
-
----
-
-## 12. References
-
-- [Product Requirements Document](../../META.md)
-- [Smart Contract Specifications](../contracts/CONTRACT_SPECS.md)
-- [API Specifications](../api/API_SPECS.md)
-- [Frontend Component Guide](../frontend/COMPONENT_SPECS.md)
-- [Subgraph Documentation](https://thegraph.com/docs)
-- [wagmi Documentation](https://wagmi.sh)
-- [IPFS Documentation](https://docs.ipfs.tech)
-
----
-
-**Document Version**: 0.1
-**Last Updated**: 2025-11-10
-**Next Review**: After sprint kickoff (D1)

@@ -1,7 +1,5 @@
 # DeStudy Development Setup Guide
 
-**Version**: 0.1
-**Date**: 2025-11-10
 **Estimated Setup Time**: 30-60 minutes
 
 ---
@@ -689,35 +687,12 @@ chore: maintenance tasks
 - [Ethereum Development Documentation](https://ethereum.org/en/developers/docs/)
 - [Smart Contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/)
 
-### 14.3 Community
-
-- [DeStudy Discord](#) (TBD)
-- [GitHub Discussions](#) (TBD)
-
 ---
 
-## 15. Next Steps
+## 15. Others
 
-After setup is complete:
-
-1. ✓ Verify all tests pass
-2. ✓ Deploy contracts to testnet
-3. ✓ Deploy subgraph
-4. ✓ Test complete upload → mint → tip flow
-5. ✓ Review [Project Timeline](./docs/PROJECT_TIMELINE.md)
-6. ✓ Start implementing features!
-
----
-
-**Setup Complete!** 🎉
+**Setup Complete!**
 
 If you encounter any issues, please:
 1. Check the [Troubleshooting](#10-troubleshooting) section
 2. Search [GitHub Issues](https://github.com/your-org/DeStudy/issues)
-3. Ask in Discord/Slack
-
----
-
-**Document Version**: 0.1
-**Last Updated**: 2025-11-10
-**Maintainer**: Tech Lead

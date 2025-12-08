@@ -1,7 +1,4 @@
-# Frontend Component Specifications v0.1
-
-**Date**: 2025-11-10
-**Status**: Draft
+# Frontend Component Specifications
 **Framework**: Next.js 14+ (App Router), React 18+, TypeScript
 
 ---
@@ -1152,9 +1149,3 @@ export function useNotes(sortBy: 'newest' | 'top-tipped', limit = 20) {
 - **Integration Tests**: Test hooks with contract mocks
 - **E2E Tests**: Playwright for user flows
 - **Visual Regression**: (Future) Chromatic or Percy
-
----
-
-**Document Version**: 0.1
-**Last Updated**: 2025-11-10
-**Next Review**: After frontend implementation (D10)

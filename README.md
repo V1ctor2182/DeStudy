@@ -6,24 +6,15 @@ Upload to IPFS → Mint as NFT → Earn tips from learners.
 
 ---
 
-## 🎯 Project Status
-
-- **Phase**: Pre-Development
-- **Version**: 0.1 (MVP Planning)
-- **Timeline**: 2-week sprint (14 days)
-- **Target Demo**: Day 14
-
----
-
-## 📋 Quick Links
+## Quick Links
 
 ### Core Documents
 
 | Document | Description | Status |
 |----------|-------------|--------|
-| [META.md](./META.md) | Product Requirements Document (PRD) | ✅ Complete |
-| [DEVELOPMENT_SETUP.md](./DEVELOPMENT_SETUP.md) | Developer onboarding guide | ✅ Complete |
-| [Project Timeline](./docs/PROJECT_TIMELINE.md) | Detailed 14-day sprint plan | ✅ Complete |
+| [META.md](./META.md) | Product Requirements Document (PRD) | Complete |
+| [DEVELOPMENT_SETUP.md](./DEVELOPMENT_SETUP.md) | Developer onboarding guide | Complete |
+| [Project Timeline](./docs/PROJECT_TIMELINE.md) | Detailed 14-day sprint plan | Complete |
 
 ### Technical Specifications
 
@@ -38,7 +29,7 @@ Upload to IPFS → Mint as NFT → Earn tips from learners.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### For Developers
 
@@ -56,7 +47,7 @@ Upload to IPFS → Mint as NFT → Earn tips from learners.
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -85,26 +76,26 @@ Upload to IPFS → Mint as NFT → Earn tips from learners.
 
 ---
 
-## 🎨 Key Features (MVP)
+## Key Features (MVP)
 
 ### For Creators
-- ✅ Upload notes (PDF/Markdown) to IPFS
-- ✅ Mint as ERC-721 NFT with metadata
-- ✅ Version control and authorship proof
-- ✅ Earn tips from learners
-- ✅ Non-custodial withdrawals
+- Upload notes (PDF/Markdown) to IPFS
+- Mint as ERC-721 NFT with metadata
+- Version control and authorship proof
+- Earn tips from learners
+- Non-custodial withdrawals
 
 ### For Learners
-- ✅ Browse notes (Newest/Top-tipped)
-- ✅ Preview content on IPFS
-- ✅ One-click tipping
-- ✅ Filter by course/topic
+- Browse notes (Newest/Top-tipped)
+- Preview content on IPFS
+- One-click tipping
+- Filter by course/topic
 
 ### For Platform
-- ✅ Decentralized storage (no server costs)
-- ✅ On-chain revenue tracking
-- ✅ Automatic fee split (author/treasury)
-- ✅ No traditional database needed
+- Decentralized storage (no server costs)
+- On-chain revenue tracking
+- Automatic fee split (author/treasury)
+- No traditional database needed
 
 **Full feature list**: [META.md §4](./META.md#4-scope)
 
@@ -154,7 +145,7 @@ DeStudy/
 
 ---
 
-## 🏃 Quick Start (Developer)
+## Quick Start (Developer)
 
 ### Prerequisites
 
@@ -177,102 +168,21 @@ open DEVELOPMENT_SETUP.md
 
 ---
 
-## 🗓️ Sprint Timeline (14 Days)
-
-| Days | Focus | Deliverables |
-|------|-------|--------------|
-| **1-2** | Setup & IPFS | Monorepo, wallet connection, IPFS upload |
-| **3-5** | Smart Contracts | NoteNFT, RewardVault, tests, deployment |
-| **6-7** | Subgraph | Schema, mappings, indexing |
-| **8-10** | Frontend Core | Mint, Detail, Explore pages |
-| **11-12** | Testing & Polish | E2E tests, mobile, optimization |
-| **13-14** | Demo Prep | Bug fixes, telemetry, demo |
-
-**🎯 Day 10 Milestone**: Complete Upload → Mint → Tip → Explore flow
-**🎉 Day 14**: MVP Demo & Deploy
-
-**Detailed breakdown**: [PROJECT_TIMELINE.md](./docs/PROJECT_TIMELINE.md)
-
----
-
-## 🎬 Demo Flow (Day 14)
-
-1. **Connect wallet** (MetaMask)
-2. **Upload note** (PDF) → IPFS
-3. **Mint NFT** with course ID & version
-4. **Browse notes** on Explore page
-5. **View note detail** with IPFS preview
-6. **Send tip** to author
-7. **See update** in real-time (subgraph)
-
-**Total time**: 5 minutes
-**Watch demo video**: TBD (after Day 14)
-
----
-
-## 🔐 Security
+## Security
 
 ### MVP Security Measures
 
-- ✅ Reentrancy protection (OpenZeppelin)
-- ✅ Pull payment pattern (no direct transfers)
-- ✅ Input validation (file types, sizes, lengths)
-- ✅ Access control (Ownable, author-only updates)
-- ✅ Event logging (full transparency)
-- ✅ 100% contract test coverage
-- ✅ Slither static analysis
-
-### Post-MVP (Before Mainnet)
-
-- [ ] External smart contract audit
-- [ ] Penetration testing
-- [ ] Bug bounty program
-- [ ] Multi-sig treasury
-- [ ] Emergency pause mechanism
+- Reentrancy protection (OpenZeppelin)
+- Pull payment pattern (no direct transfers)
+- Input validation (file types, sizes, lengths)
+- Access control (Ownable, author-only updates)
+- Event logging (full transparency)
+- 100% contract test coverage
+- Slither static analysis
 
 **Details**: [Technical Architecture §4](./docs/architecture/TECHNICAL_ARCHITECTURE.md#4-security-architecture)
 
----
-
-## 📊 Success Metrics
-
-### North Star Metric
-
-**Weekly Active Tipped Notes (WA-Tipped)**: Number of unique notes that received tips in a week.
-
-### Core KPIs (MVP)
-
-| Metric | Target |
-|--------|--------|
-| **D1 Activation** | ≥30% of wallets mint a note |
-| **Tip Incidence** | ≥15% of notes receive a tip |
-| **Median Tip** | ≥0.01 ETH |
-| **W1 Retention** | ≥20% return within 7 days |
-
-**Full KPI list**: [META.md §10](./META.md#10-telemetry--kpis)
-
----
-
-## 🤝 Contributing
-
-### For Team Members
-
-1. Read [DEVELOPMENT_SETUP.md](./DEVELOPMENT_SETUP.md)
-2. Pick a task from [PROJECT_TIMELINE.md](./docs/PROJECT_TIMELINE.md)
-3. Create feature branch: `git checkout -b feature/your-feature`
-4. Follow commit convention: `feat: add note minting`
-5. Open PR with description and tests
-
-### Code Quality Standards
-
-- **Contracts**: 100% test coverage, no Slither warnings
-- **Frontend**: ESLint passing, TypeScript strict mode
-- **Tests**: All tests pass before merge
-- **Reviews**: 1 approval required for merge
-
----
-
-## 📞 Support & Resources
+## Resources
 
 ### Documentation
 
@@ -289,21 +199,9 @@ open DEVELOPMENT_SETUP.md
 - [OpenZeppelin](https://docs.openzeppelin.com/contracts)
 - [wagmi](https://wagmi.sh/)
 
-### Community
-
-- **Discord**: TBD
-- **GitHub Issues**: [Issues](https://github.com/your-org/DeStudy/issues)
-- **GitHub Discussions**: [Discussions](https://github.com/your-org/DeStudy/discussions)
-
 ---
 
-## 📜 License
-
-**TBD** (MIT, Apache 2.0, or other)
-
----
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with:
 - [OpenZeppelin Contracts](https://openzeppelin.com/contracts/)
@@ -312,40 +210,4 @@ Built with:
 - [Next.js](https://nextjs.org/)
 - [wagmi](https://wagmi.sh/)
 
----
-
-## 📅 Changelog
-
-### v0.1 - 2025-11-10 (Planning Phase)
-
-- ✅ Product Requirements Document (PRD)
-- ✅ Technical Architecture
-- ✅ Smart Contract Specifications
-- ✅ Frontend Component Specifications
-- ✅ Subgraph Schema
-- ✅ API Specifications
-- ✅ Testing Strategy
-- ✅ Development Setup Guide
-- ✅ Project Timeline (14-day sprint)
-
-**Next**: Day 1 - Kickoff & Project Setup
-
----
-
-## 🚀 Let's Build!
-
-Ready to turn study notes into valuable on-chain assets?
-
-1. **Read**: [META.md](./META.md) (15 min)
-2. **Setup**: [DEVELOPMENT_SETUP.md](./DEVELOPMENT_SETUP.md) (45 min)
-3. **Start**: [Day 1 Tasks](./docs/PROJECT_TIMELINE.md#day-1-tasks)
-
-**Questions?** Open a [GitHub Discussion](https://github.com/your-org/DeStudy/discussions)
-
----
-
 **Built with ❤️ by the DeStudy team**
-
----
-
-*Last updated: 2025-11-10*
