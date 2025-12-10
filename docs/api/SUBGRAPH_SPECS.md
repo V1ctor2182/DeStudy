@@ -1,10 +1,5 @@
-# Subgraph Specifications v0.1
+# Subgraph Specifications
 
-**Date**: 2025-11-10
-**Status**: Draft
-**The Graph Version**: v0.30+
-
----
 
 ## 1. Overview
 
@@ -905,9 +900,3 @@ Test against testnet:
 - AssemblyScript: https://www.assemblyscript.org
 - Matchstick Testing: https://github.com/LimeChain/matchstick
 - Subgraph Studio: https://thegraph.com/studio
-
----
-
-**Document Version**: 0.1
-**Last Updated**: 2025-11-10
-**Next Review**: After subgraph deployment (D7)

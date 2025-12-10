@@ -1,10 +1,4 @@
-# API Specifications v0.1
-
-**Date**: 2025-11-10
-**Status**: Draft
-**Framework**: Next.js API Routes (App Router)
-
----
+# API Specifications
 
 ## 1. Overview
 
@@ -949,9 +943,3 @@ SENTRY_DSN=...
 - Full-text search (Meilisearch/Algolia)
 - Autocomplete for course IDs
 - Tag-based filtering
-
----
-
-**Document Version**: 0.1
-**Last Updated**: 2025-11-10
-**Next Review**: After API implementation (D5)

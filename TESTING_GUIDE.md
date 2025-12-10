@@ -158,14 +158,14 @@ Import one of Hardhat's default accounts:
 
 ## Success Criteria
 
-✅ Wallet connects successfully  
-✅ File uploads to IPFS (mock)  
-✅ NFT mints with correct metadata  
-✅ Note appears in explore page  
-✅ Note detail page displays correctly  
-✅ Tipping transaction completes  
-✅ Tip amount updates in UI  
-✅ Pending balance shows in profile  
-✅ Withdrawal transaction succeeds  
-✅ Balance updates after withdrawal  
+- Wallet connects successfully  
+- File uploads to IPFS (mock)  
+- NFT mints with correct metadata  
+- Note appears in explore page  
+- Note detail page displays correctly  
+- Tipping transaction completes  
+- Tip amount updates in UI  
+- Pending balance shows in profile  
+- Withdrawal transaction succeeds  
+- Balance updates after withdrawal  
 

@@ -132,6 +132,3 @@ For production deployment:
 4. Configure environment variables
 5. Build frontend: `cd frontend && npm run build`
 
----
-
-**Happy coding! 🚀**
